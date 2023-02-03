@@ -8,6 +8,29 @@ class Tugas2 extends CI_Controller {
         parent::__construct();
     }
 
+    public function index() {
+        $data['title'] = "View - Index Tugas 2";
+        $data['ref'] = [
+            (object) [
+                'nama_tugas' => "Mata Kuliah",
+                "url" => base_url('Tugas2/mata_kuliah')
+            ],
+            (object) [
+                'nama_tugas' => "Form Registrasi",
+                "url" => base_url('Tugas2/form_registrasi')
+            ],
+            (object) [
+                'nama_tugas' => "Mahasiswa",
+                "url" => base_url('Tugas2/mahasiswa')
+            ],
+            (object) [
+                'nama_tugas' => "Login",
+                "url" => base_url('Tugas2/login')
+            ],
+        ];
+        $this->load->view('tugas2/index_tugas2', $data);
+    }
+
     public function mata_kuliah() {
         $data['title'] = 'Mata Kuliah';
         $data['mata_kuliah'] = [
@@ -24,12 +47,12 @@ class Tugas2 extends CI_Controller {
                 'sks' => '3'
             ],
         ];
-        $this->load->view('mata_kuliah', $data);
+        $this->load->view('tugas2/mata_kuliah', $data);
     }
 
     public function form_registrasi() {
         $data['title'] = 'Form Registrasi';
-        $this->load->view('form_registrasi', $data);
+        $this->load->view('tugas2/form_registrasi', $data);
     }
 
     public function mahasiswa() {
@@ -54,11 +77,11 @@ class Tugas2 extends CI_Controller {
                 'kota_asal' => 'Surabaya'
             ],
         ];
-        $this->load->view('mahasiswa', $data);
+        $this->load->view('tugas2/mahasiswa', $data);
     }
 
     public function login() {
         $data['title'] = 'Login';
-        $this->load->view('login', $data);
+        $this->load->view('tugas2/login', $data);
     }
 }
